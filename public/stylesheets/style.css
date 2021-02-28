@@ -1,0 +1,118 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css); 
+
+.bg {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-image: url("/images/bg.jpg");
+}
+
+body {
+	font-family: "Noto Sans KR", sans-serif;
+	color: white;
+	margin: 0;
+	padding: 0;
+}
+
+.swiper-container {
+	width: 100%;
+	height: 100vh;
+}
+
+.swiper-slide {
+	text-align: center;
+	font-size: 18px;
+}
+
+.left {
+}
+.menu {
+	margin: 15px 3%;
+	height: 7.5vh;
+	line-height: 7.5vh;
+	font-weight: 500;
+	font-size: 2.3vh;
+}
+.menu ul {
+	padding: 0;
+	margin: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+	text-align: center;
+}
+
+
+.menu li {
+	display: inline-block;
+	padding: 0 2%;
+	margin: 0;
+}
+
+.menu p {
+	display: block;
+    color: white;
+	width: 11vh;
+	margin: 0;
+	padding: 0;
+}
+
+.menu li p:hover {
+    color: orange;	
+}
+
+
+
+.musiclist {
+	color: black;
+	padding: 5% 3%;
+	width: 100vw;
+	height: 100%;
+}
+
+.musiclist table{
+  width: 100%;
+}
+.musiclist .tbl-header{
+  height: 5%;
+  padding: 0 2%;
+  background-color: rgba(255,255,255,1.0);
+  box-shadow: 0 0 0.7vh 0.5vh black;
+ }
+.musiclist .tbl-content{
+  height:95%;
+  padding: 0 2%;
+  overflow-x:auto;
+  background-color: rgba(255,255,255,0.5);
+}
+.musiclist th{
+margin: 0.5vh;
+  text-align: middle;
+  vertical-align:middle;
+  font-weight: 500;
+  font-size: 1.8vh;
+}
+.musiclist td{
+  padding: 1vh 0.5vh;
+  text-align: middle;
+  vertical-align:middle;
+  font-weight: 500;
+  font-size: 1.8vh;
+  border-bottom: solid 0.5px rgba(255,255,255,0.9);
+  text-shadow: 0 0 0.7vh white;
+}
+.musiclist td.title{
+  font-weight: 800;
+}
+
+
+
+/* for custom scrollbar for webkit browser*/
+
+::-webkit-scrollbar {
+    width: 0.8vh;
+} 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 1vh rgba(0,0,0,0.3); 
+} 
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 1vh rgba(0,0,0,0.3); 
+}

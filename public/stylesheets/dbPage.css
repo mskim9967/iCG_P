@@ -1,0 +1,11 @@
+.song h2{
+  color: tomato;
+}
+.song .song-form label,
+.song-show label{
+  display: inline-block;
+  width: 70px;
+}
+.song .song-menu form{
+  display: inline-block;
+}

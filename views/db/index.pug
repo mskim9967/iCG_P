@@ -1,0 +1,6 @@
+include nav.pug
+each song in songs
+	ul
+		li
+			a(href='/db/' + song._id)
+				= song.title

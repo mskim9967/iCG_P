@@ -1,0 +1,27 @@
+.musiclist
+	table.tbl-header
+		colgroup
+			col(width= '12%')
+			col(width= '47%')
+			col(width= '33%')
+			col(width= '8%')
+		thead
+			tr
+				th.production 소속
+				th.title 곡
+				th.singerCV 아이돌 / CV
+				th.level Lv
+	.tbl-content
+		table
+			colgroup
+				col(width= '12%')
+				col(width= '47%')
+				col(width= '33%')
+				col(width= '8%')
+			tbody
+				each song in songs
+					tr(id= song)
+						td.production=song.production
+						td.title=song.title
+						td.singerCV!=song.singer+'<br>'+song.CV
+						td.level=song.level

@@ -1,0 +1,18 @@
+{
+	"albums":[
+		{"id":0, 
+		 "title":"OTAHEN 앤섬",
+		 "singer":"유메미 리아무",
+		 "CV": "호시키 세에나", 
+		 "cover":"cover.jpeg", 
+		 "call":"call.json"
+		},
+		{"id":1, 
+		 "title":"다음",
+		 "singer":"다",
+		 "CV": "음", 
+		 "cover":"cover.jpeg", 
+		 "call":"call.json"
+		}
+	]
+}

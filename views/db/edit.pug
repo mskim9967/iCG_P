@@ -1,0 +1,31 @@
+doctype html
+
+head
+  link(rel='stylesheet', href='/stylesheets/dbPage.css')
+body
+  .song.song-edit
+    h2 Edit
+    form.song-form(action='/db/'+ song._id + '?_method=put' method='post')
+      div
+        label(for='title') title
+        input#title(type='text' name='title' value=song.title)
+      div
+        label(for='singer') singer
+        input#singer(type='text' name='singer' value=song.singer)
+      div
+        label(for='CV') CV
+        input#CV(type='text' name='CV' value=song.CV)
+      div
+        label(for='cover') cover image
+        input#cover(type='text' name='cover' value=song.cover)
+      div
+        label(for='mp3') mp3 file
+        input#mp3(type='text' name='mp3' value=song.mp3)
+      div
+        label(for='lyric_call') lyric call file
+        input#lyric_call(type='text' name='lyric_call' value=song.lyric_call)
+      div
+        label(for='bpm') bpm
+        input#bpm(type='text' name='bpm' value=song.bpm)
+      div
+        button(type='submit') Submit

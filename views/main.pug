@@ -1,0 +1,28 @@
+doctype html
+html.bg
+	head
+		title #{title}
+		link(rel='stylesheet', href="https://unpkg.com/swiper/swiper-bundle.min.css")
+		script(type='text/javascript').
+			var songs = songs
+		link(rel='stylesheet', href='/stylesheets/player.css')
+		link(rel='stylesheet', href='/stylesheets/call.css')
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel="manifest" href="/stylesheets/manifest.json")
+		script(src='//code.jquery.com/jquery-1.11.3.min.js')
+		script(src='https://unpkg.com/swiper/swiper-bundle.min.js')
+		script(src='/javascripts/main.js')
+		script(src='/javascripts/player.js')
+	body
+		.swiper-container
+			.swiper-wrapper
+				.swiper-slide.left
+					.menu
+						include menu.pug
+				.swiper-slide.mid
+						include list.pug
+				.swiper-slide.right
+					.player
+						include call.pug
+						include player.pug
+				
