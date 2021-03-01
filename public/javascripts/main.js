@@ -1,8 +1,3 @@
-
-
-
-/////////////////////////////////////////
-
 var bpm;
 var tic = new Audio('../data/tic.wav');
 var cnt = 0;
@@ -23,7 +18,7 @@ $(function()
 	var timerid, color;
 	///////////////////////////
 	
-	$(document).ready(function () { 
+$(document).ready(function () { 
 	var swiper = new Swiper('.swiper-container', {
 		shortswipes: false,
 		threshold: 25,
@@ -39,13 +34,16 @@ $(function()
 		
 	});
 	
-	$('.music').click(function(){
-		$('.mid').load("views/list");
+	$('.mid .setlist').hide();
+	$('#music').click(function(){
+		$('.mid .setlist').hide();
+		$('.mid .musiclist').show();
 		swiper.slideTo(1);
 	});
 	
-	$('.setlist').click(function(){
-		$('.mid').load("views/setlist");
+	$('#setlist').click(function(){
+		$('.mid .musiclist').hide();
+		$('.mid .setlist').show();
 		swiper.slideTo(1);
 	});
 	
@@ -62,9 +60,9 @@ $(function()
 					var song = JSON.parse(result.result);
 					albums = [ song.title ];
 					singer = [ song.singer + ' / CV. ' + song.CV];
-					albumArtworks = [song.cover];
-					trackUrl = [ song.mp3 ];
-					txtLink = song.lyric_call;
+					albumArtworks = [ '/uploads/cover/'+song.filename+'.jpg'];
+					trackUrl = [ '/uploads/mp3/'+song.filename+'.mp3' ];
+					txtLink =  '/uploads/lyric_call/'+song.filename+'.txt';
 					color = song.color;
 					cnt = 0;
 					callArr = [];
@@ -88,6 +86,16 @@ $(function()
         $(audio).on('timeupdate',updateCurrTime);	
         playPreviousTrackButton.on('click',function(){ selectTrack(-1);} );
         playNextTrackButton.on('click',function(){ selectTrack(1);});
+	
+		$('td.production').each(function(index, item) {
+			$(item).css({
+				'background-image':'url("images/'+$(item).attr('id')+'.png")',
+				'background-position': 'center',
+				'background-repeat':'no-repeat',
+				'background-size':'auto 60%',
+				
+			});
+		});
 });
 
 

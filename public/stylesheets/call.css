@@ -29,7 +29,6 @@ html {
 .lyric {
 	font-size: 1.8vh;
 	color:white;
-	text-shadow: 0 0 0.5vh var(--color);
 }
 
 .call, .lyric {
@@ -41,7 +40,9 @@ html {
 	transition : none;
 	opacity: 100%;
 }
-
+.textarea .lyric.active {	
+	text-shadow: 0 0 0.5vh var(--color);
+}
 .textarea .call.active {	
 	color: var(--color);
 	text-shadow: 0 0 1.5vh var(--color);
