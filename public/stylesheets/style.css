@@ -27,7 +27,7 @@ body {
 /*--------------------------------------------*/
 
 .main {
-	padding:10vh 1vh;
+	padding:10vh 1vh 5vh 1vh;
 	height:100%;
 	display:grid;
 	grid-template-rows: 2fr 5fr;
@@ -122,7 +122,79 @@ body {
 	padding: 3vh 2vw;
 	width: 100vw;
 	height: 100%;
+	display:grid;
+	grid-template-rows: 1fr 0.3fr 25fr;
 }
+
+.musiclist .up .search{
+	height: 100%;
+	width:100%;
+	padding: 0 2vw;
+	display: grid;
+	grid-template-columns: 12fr 82fr 6fr;
+}
+
+.musiclist .up .search #search {
+	margin:auto;
+	width: 80%;
+	height: 100%;
+	border: 0.1vh solid rgb(255,255,255,0.6);
+	background: transparent;
+	color:white;
+	font-size: 1.9vh;
+	text-align : center;
+}
+
+.search #search:hover,
+        #search:focus {
+}
+
+.musiclist .up .search select {
+	height:100%;
+	width : 70%;
+	font-size: 1.5vh;
+	margin: auto;
+	  background: transparent;
+	color:rgb(255,255,255,0.6);
+	text-align : center;
+
+}
+.select select {
+  -webkit-appearance: none;
+  width: 100%;
+  border: 0.1vh solid rgb(255,255,255,0.6);
+  background: #fff;
+  box-shadow: 0 1px 3px -2px #9098a9;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 16px;
+  transition: all 150ms ease;
+	text-align-last:center;
+	  -ms-text-align-last: center;
+   -moz-text-align-last: center;
+}
+.select select:required:invalid {
+  color: #5a667f;
+	
+	text-align-last:center;
+}
+.select select option {
+  color: #223254;
+}
+.select select option[value=""][disabled] {
+  display: none;
+}
+.select select:focus {
+  outline: none;
+  border-color: #07f;
+}
+
+
+select { appearance: none; -webkit-appearance: none;}
+select::-ms-expand { display:none; }
+
+
+
 
 .musiclist table{
   width: 100%;
@@ -145,26 +217,51 @@ body {
   overflow-x:auto;
   /*background-color: rgba(0,0,0,0.5);*/
 }
-.musiclist th{
+.musiclist .tbl-header th{
 margin: 0.5vh;
   text-align: middle;
   vertical-align:middle;
   font-weight: 500;
   font-size: 1.8vh;
 }
-.musiclist td{
+.musiclist .tbl-content td{
   padding: 1vh 0.5vh;
   text-align: middle;
   vertical-align:middle;
   font-weight: 100;
   font-size: 1.8vh;
   border-bottom: solid 0.5px rgba(255,255,255,0.2);
-  text-shadow: 0 0 0.5vh black;
 }
-.musiclist td.title{
+.musiclist .tbl-content td.title{
   font-weight: 500;
 }
 
+.musiclist .tbl-content .slideArea{
+
+}
+
+.musiclist .tbl-content td.singerCV{
+
+}
+
+
+.musiclist .tbl-content td.title:active,
+.musiclist .tbl-content tr:hover{
+	transition: all 0.2s;
+  background-color:rgb(0,0,0, 0.5);
+	transform:scale(1.05);
+}
+
+
+.musiclist .tbl-content tr {
+    transition: all 0.2s linear
+}
+
+.musiclist .tbl-content tr {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
 
 ::-webkit-scrollbar {
     width: 0.8vh;
@@ -175,6 +272,7 @@ margin: 0.5vh;
 ::-webkit-scrollbar-thumb {
     -webkit-box-shadow: inset 0 0 1vh rgba(0,0,0,0.3); 
 }
+
 
 
 /*--------------------------------------------*/

@@ -20,6 +20,7 @@ html {
 	word-break: keep-all;
 	
 	line-height: 120%;
+	
 }
 
 .call {
@@ -43,9 +44,10 @@ html {
 .textarea .lyric.active {	
 	text-shadow: 0 0 0.5vh var(--color);
 }
-.textarea .call.active {	
+.textarea .call.active {
 	color: var(--color);
 	text-shadow: 0 0 1.5vh var(--color);
+	
 }
 
 .textarea::-webkit-scrollbar {
