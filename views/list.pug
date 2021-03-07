@@ -22,11 +22,6 @@
 	.bottom
 		.tbl-header
 			table
-				colgroup
-					col(width= '12%')
-					col(width= '45%')
-					col(width= '37%')
-					col(width= '6%')
 				thead
 					tr
 						th.production 소속
@@ -35,16 +30,12 @@
 						th.level Lv
 		.tbl-content
 			table.tablesorter
-				colgroup
-					col(width= '12%')
-					col(width= '45%')
-					col(width= '37%')
-					col(width= '6%')
 				tbody
 					each song in songs
 						tr(id= song)
 							td.production(id =song.production)
 							td.title=song.title
-							.slideArea
-								td.singerCV!=song.singer+'<br>'+song.CV
+							td.singerCV
+								.slideArea
+									!=song.singer+'<br>'+song.CV
 							td.level=song.level

@@ -5,12 +5,12 @@ html {
 .textarea{
 	position: relative;
     height: 85vh;
-	width: 90vw;
+	width: 96vw;
 	top: 3.5vh;
-	left: 5vw;
+	left: 2vw;
     background-color: rgba(0, 0, 0, 70%);
     border-radius: 2vh 2vh 0 0;
-	padding: 20vh 2vh 40vh 2vh;
+	padding: 20vh 1vw 40vh 1vw;
 
 	overflow-y: auto;
 	z-index: 0;
