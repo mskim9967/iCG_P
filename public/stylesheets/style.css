@@ -102,11 +102,16 @@ body {
 	background-image:linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url("/images/bg1.png");
 }
 
+.menu .card {
+	-webit-filter: grayscale(50%);
+	filter: grayscale(50%);
+}
+
 .menu .card:active,
 .menu .card:hover{
 	transform:scale(1.08);
-	filter: brightness(150%);
-	text-shadow: 0 0 1.5vh orange;
+	-webit-filter: grayscale(0%);
+	filter: grayscale(0%) brightness(1.1);
 }
 .menu p {
     color: white;
@@ -164,10 +169,9 @@ body {
   width: 100%;
   border: 0.1vh solid rgb(255,255,255,0.6);
   background: #fff;
-  box-shadow: 0 1px 3px -2px #9098a9;
   cursor: pointer;
   font-family: inherit;
-  font-size: 16px;
+  font-size: 2vh;
   transition: all 150ms ease;
 	text-align-last:center;
 	  -ms-text-align-last: center;
@@ -175,7 +179,6 @@ body {
 }
 .select select:required:invalid {
   color: #5a667f;
-	
 	text-align-last:center;
 }
 .select select option {
@@ -217,14 +220,13 @@ select::-ms-expand { display:none; }
   height:96.5%;
   padding: 0 2vw;
   overflow-x:auto;
-  /*background-color: rgba(0,0,0,0.5);*/
 }
 .musiclist .tbl-header th{
 margin: 0.5vh;
   text-align: middle;
   vertical-align:middle;
   font-weight: 500;
-  font-size: 1.8vh;
+  font-size: 1.6vh;
 }
 .musiclist .tbl-content td{
   padding: 1vh 0.5vh;
@@ -233,7 +235,7 @@ margin: 0.5vh;
   font-weight: 100;
   font-size: 1.8vh;
   border-bottom: solid 0.5px rgba(255,255,255,0.2);
-	white-space: nowrap;
+  white-space: nowrap;
 }
 
 .musiclist table {
@@ -241,13 +243,13 @@ margin: 0.5vh;
 	width: 100%;
 }
 .musiclist .production{
-  width:12%;
+  width:10%;
 }
 .musiclist .title{
-  width:47%;
+  width:50%;
 }
 .musiclist .singerCV{
-	width:37%;
+	width:34%;
 }
 .musiclist .level{
   width:6%;
@@ -255,10 +257,6 @@ margin: 0.5vh;
 .musiclist .tbl-content td.title{
 	font-weight: 500;
 }
-.musiclist .tbl-content .slideArea{
-	overflow:auto;
-}
-
 
 
 .musiclist .tbl-content td.title:active,
@@ -292,3 +290,12 @@ margin: 0.5vh;
 
 
 /*--------------------------------------------*/
+
+.slideArea{
+	-ms-overflow-style: none; /* IE and Edge */
+	overflow:auto;
+	white-space: nowrap;
+}
+.slideArea::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}

@@ -34,7 +34,9 @@
 					each song in songs
 						tr(id= song)
 							td.production(id =song.production)
-							td.title=song.title
+							td.title
+								.slideArea
+									!=song.title
 							td.singerCV
 								.slideArea
 									!=song.singer+'<br>'+song.CV

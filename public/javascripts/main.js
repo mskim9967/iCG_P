@@ -80,6 +80,9 @@ $(function()
 					lidx = 0, cidx = 0, lpassedbeat = 0, cpassedbeat = 0;
 					bpm = 60.0 / parseFloat(song.bpm * 2);
 					initPlayer();
+					$('.textarea').animate({
+						scrollTop: 0
+					}, 300);
 				}
 			}
         });
@@ -161,10 +164,22 @@ $(function()
 			'background-image':'url("images/'+$(item).attr('id')+'.png")',
 			'background-position': 'center',
 			'background-repeat':'no-repeat',
-			'background-size':'auto 60%',
+			'background-size':'auto 50%',
 
 		});
 	});
+	slideForever();
+	
+	function slideForever() {
+		$('.slideArea').each(function(index, object) {
+			if($(object)[0].scrollWidth > $(object).innerWidth())
+				$(object).marquee({
+					behavior:"scroll",
+					direction:"left",
+					duration: 3500
+				})
+		});
+	}
 
 
 	
@@ -209,11 +224,11 @@ $(function()
 					if($('.lyric.active')[0] && $('.lyric#l'+lidxs[cnt]).text().includes("\n")) 
 						$('.textarea').animate({
 							scrollTop: ($('.lyric#l'+lidxs[cnt])[0].offsetTop - $('.textarea')[0]['clientHeight'] * 0.35)
-						}, 150);
+						}, 300);
 					else if(!$('.lyric.active')[0] && $('.call.active')[0] && $('.call#c'+cidxs[cnt]).text().includes("\n")) 
 						$('.textarea').animate({
 							scrollTop: ($('.call#c'+cidxs[cnt])[0].offsetTop - $('.textarea')[0]['clientHeight'] * 0.35)
-						}, 150);
+						}, 300);
 			
 				if( hlflag != hlflagbefore) {
 					if(hlflag) {
@@ -467,6 +482,12 @@ $(function()
 		playOneTrack(1);
 		auto_lyric();
 		audio.loop = false;
+		if($('.slideArea#track-name')[0].scrollWidth > $('.slideArea#track-name').innerWidth())
+				$('.slideArea#track-name').marquee({
+					behavior:"scroll",
+					direction:"left",
+					duration: 5000
+				})
 	}
 
 
