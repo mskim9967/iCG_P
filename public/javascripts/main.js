@@ -220,15 +220,15 @@ $(function()
 					hlflag = true;
 				else if(callArr[cidxs[cnt]].includes(']'))
 					hlflag = false;
-				if( scrollflag )
+				if( scrollflag && !$('.textarea').is(':animated'))
 					if($('.lyric.active')[0] && $('.lyric#l'+lidxs[cnt]).text().includes("\n")) 
 						$('.textarea').animate({
 							scrollTop: ($('.lyric#l'+lidxs[cnt])[0].offsetTop - $('.textarea')[0]['clientHeight'] * 0.35)
-						}, 300);
+						}, 600);
 					else if(!$('.lyric.active')[0] && $('.call.active')[0] && $('.call#c'+cidxs[cnt]).text().includes("\n")) 
 						$('.textarea').animate({
 							scrollTop: ($('.call#c'+cidxs[cnt])[0].offsetTop - $('.textarea')[0]['clientHeight'] * 0.35)
-						}, 300);
+						}, 600);
 			
 				if( hlflag != hlflagbefore) {
 					if(hlflag) {

@@ -219,7 +219,7 @@ select::-ms-expand { display:none; }
 .musiclist .tbl-content{
   height:96.5%;
   padding: 0 2vw;
-  overflow-x:auto;
+  overflow-x: hidden;
 }
 .musiclist .tbl-header th{
 margin: 0.5vh;
