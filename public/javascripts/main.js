@@ -81,7 +81,7 @@ $(function()
 					bpm = 60.0 / parseFloat(song.bpm * 2);
 					initPlayer();
 					$('.textarea').animate({
-						scrollTop: 0
+						//scrollTop: 0
 					}, 300);
 				}
 			}
@@ -275,8 +275,6 @@ $(function()
 				i.attr('class','fas fa-pause fa');
 				audio.play();
 				auto_lyric();
-
-				console.log("play");
 			}
 			else
 			{
@@ -287,8 +285,6 @@ $(function()
 				albumArt.removeClass('buffering');
 				i.attr('class','fas fa-play fa');
 				audio.pause();
-
-				console.log("paused");
 			}
 		},300);
 	}
@@ -499,7 +495,6 @@ $(function()
 				  if(rawFile.status === 200 || rawFile.status == 0) {
 					  var allText = rawFile.responseText;
 					  txt = allText.split(/ /); //split by line break and add to array
-					  console.log(txt);
 				}
 			}
 		};
