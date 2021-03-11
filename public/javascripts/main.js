@@ -81,7 +81,7 @@ $(function()
 					bpm = 60.0 / parseFloat(song.bpm * 2);
 					initPlayer();
 					$('.textarea').animate({
-						//scrollTop: 0
+						scrollTop: 0
 					}, 300);
 				}
 			}
@@ -211,7 +211,6 @@ $(function()
 						$('.call#c'+cidxs[cnt - 1]).removeClass('active');
 						if($('.call#c'+cidxs[cnt]).text() != "\n") {
 							$('.call#c'+cidxs[cnt]).addClass('active');
-							//tic.load(); tic.volume = 1; tic.play();
 						}
 					}
 					cnt++;
@@ -224,11 +223,11 @@ $(function()
 					if($('.lyric.active')[0] && $('.lyric#l'+lidxs[cnt]).text().includes("\n")) 
 						$('.textarea').animate({
 							scrollTop: ($('.lyric#l'+lidxs[cnt])[0].offsetTop - $('.textarea')[0]['clientHeight'] * 0.35)
-						}, 600);
+						}, 400);
 					else if(!$('.lyric.active')[0] && $('.call.active')[0] && $('.call#c'+cidxs[cnt]).text().includes("\n")) 
 						$('.textarea').animate({
 							scrollTop: ($('.call#c'+cidxs[cnt])[0].offsetTop - $('.textarea')[0]['clientHeight'] * 0.35)
-						}, 600);
+						}, 400);
 			
 				if( hlflag != hlflagbefore) {
 					if(hlflag) {
