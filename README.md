@@ -1,36 +1,53 @@
-사용 언어
-Frontend : Pug(Jade), CSS, JavaScript
-Backend : Node.js, MongoDB
-Result
+# 사용 언어
 
+-   Frontend : Pug(Jade), CSS, JavaScript
+-   Backend : Node.js, MongoDB
 
+---
 
-slide 1
+# Result
 
-slide 2
+<iframe src="https://www.youtube.com/embed/UV_VHeA6i_g" width="560" height="315" frameborder="0" allowfullscreen=""></iframe>[##_Image|kage@cPpSfj/btq2MkDlQML/Yv6hmKFs9eajcrC8CXP5m0/img.png|alignCenter|data-origin-width="0" data-origin-height="0" width="300" data-ke-mobilestyle="widthContent"|slide 1||_##][##_Image|kage@qw5nb/btq2MATlZhQ/qhGBK9StR5lfz5J6fDtsx0/img.png|alignCenter|data-origin-width="0" data-origin-height="0" width="300" height="NaN" data-ke-mobilestyle="widthContent"|slide 2||_##][##_Image|kage@bRSRmf/btq2MkpOiqz/fVN8LWRfhznheQ2MYDt2KK/img.png|alignCenter|data-origin-width="0" data-origin-height="0" width="300" data-ke-mobilestyle="widthContent"|slide 3||_##]
 
-slide 3
-UI
-Slider
-swiper 라이브러리 사용
-1 슬라이드에 메뉴탭, 2슬라이드에 내용탭, 3슬라이드에 플레이어 탭
-1 slide
-메뉴 탭, 네비게이션 역할.
-메뉴 클릭 시 2 slide로 이동, 2 slide 내용 변경
-2 slide
-pug의 include로 모든 html 불러온 후, css의 visible 이용하여 내용 변경
+---
 
+# UI
+
+### Slider
+
+-   [swiper 라이브러리](https://swiperjs.com/) 사용
+-   1 슬라이드에 메뉴탭, 2슬라이드에 내용탭, 3슬라이드에 플레이어 탭
+
+### 1 slide
+
+-   메뉴 탭, 네비게이션 역할.
+-   메뉴 클릭 시 2 slide로 이동, 2 slide 내용 변경
+
+### 2 slide
+
+**pug**의 `include`로 모든 html 불러온 후, **css**의 `visible` 이용하여 내용 변경
+
+```
 .swiper-slide.mid
     include setlist.pug
     include list.pug
-3 slide
+```
+
+### 3 slide
+
 2 슬라이드에서 곡 선택 시 3 슬라이드로 이동
 
-Logic
-DB
+---
+
+# Logic
+
+## DB
+
 MongoDB를 활용하여 json 형식으로 노래 정보를 저장
 
-data form
+### data form
+
+```
 {
     "_id":{"$oid":"603f707b2d7b650124438963"},
     "title":"태양 키스",
@@ -43,7 +60,11 @@ data form
     "production":"p283",
     "__v":{"$numberInt":"0"}
 }
-data binding
+```
+
+### data binding
+
+```
 // Song.js
 var mongoose = require('mongoose');
 
@@ -61,6 +82,9 @@ var songSchema = new mongoose.Schema({
 var Song = mongoose.model('song', songSchema);
 
 module.exports = Song;
+```
+
+```
 // index.js
 var mongoose = require('mongoose');
 var Song = require('../models/Song');
@@ -79,10 +103,15 @@ router.get('/', function(req, res, next) {
         res.render('main', { title: 'iCG_P', songs: songs});
     });
 });
-Player
-Load
+```
+
+## Player
+
+### Load
+
 ajax 통신으로 파일 불러옴
 
+```
     $(document.body).delegate('.tbl-content tr', 'click', function() {
         $.ajax({
             url: '/api/sendPL',
@@ -128,10 +157,14 @@ function readTextFile(textFilePath) {
         };
         rawFile.send(null);
           ...
-Lyric File
-곡의 bpm을 계산하여 각 비트에 들어갈 가사를 txt 파일로 저장
+```
+
+### Lyric File
+
+곡의 bpm을 계산하여 각 비트에 들어갈 가사를 txt 파일로 저장  
 (하이픈 하나 당 한 비트를 의미)
 
+```
 우- 랴- 오- 이!$- 우- 랴- 오- 이!$- 
 우- 랴- 오- 이!$- 우- 랴- 오- 이!$- 
 우- 랴- 오- 이!$- 우- 랴- 오- 이!$- 
@@ -157,10 +190,14 @@ Lyric File
 ---------------- 
 리- 포-- 비$----- 리- 포-- 비----- 
 ...
-Player
-각 가사를 각각의 html class로 지정
-setInterval를 사용하여 일정 주기마다 현재 mp3 파일의 재생 시간을 확인, 비트가 변경되었다면 해당 가사 class를 active 시켜 css를 변경시킴
+```
 
+### Player
+
+각 가사를 각각의 html class로 지정  
+`setInterval`를 사용하여 일정 주기마다 현재 mp3 파일의 재생 시간을 확인, 비트가 변경되었다면 해당 가사 class를 active 시켜 css를 변경시킴
+
+```
 function auto_lyric() {
     timerid = setInterval(function(){
             if(cnt > lidxs.length || cnt > cidxs.length)
@@ -182,23 +219,32 @@ function auto_lyric() {
                 cnt++;
             }
               ...
-한계점 및 개선안
-Web Application
-Web Application 구조를 지향하였기에 swiper 라이브러리, setvisible 속성 등을 사용했지만, 여러 파일을 불러올 때의 버벅임과 비효율적인 개발 등 pug의 한계점을 느낌.
+```
 
-React를 활용하면 해결할 수 있을 듯
+---
 
-data form
+# 한계점 및 개선안
+
+## Web Application
+
+Web Application 구조를 지향하였기에 swiper 라이브러리, `setvisible` 속성 등을 사용했지만, 여러 파일을 불러올 때의 버벅임과 비효율적인 개발 등 pug의 한계점을 느낌.
+
+> React를 활용하면 해결할 수 있을 듯
+
+## data form
+
 하나의 곡에 중복된 정보들이 많이 들어간다. 또한 하나의 곡에 하나의 색만 적용 가능, 그마저도 직접 입력해줘야 함.
 
-data 구조를 곡, 아이돌 등으로 나누어 서로 연결시켜주자
+> data 구조를 곡, 아이돌 등으로 나누어 서로 연결시켜주자
 
-UI
+## UI
+
 구리다. 너무구리다. 디자인 정말 어렵다. CSS파일도 엉망진창이다.
 
-Bootstrap, SASS를 잘 활용해보자
+> Bootstrap, SASS를 잘 활용해보자
 
-DB-API
+## DB-API
+
 API 서버를 따로 제작하여 독립적 개발 지향
 
-Node.js의 vhost를 사용하여 하나의 서버로 여러 어플리케이션 실행 가능 (https://jetalog.net/73)
+> Node.js의 vhost를 사용하여 하나의 서버로 여러 어플리케이션 실행 가능 ([https://jetalog.net/73](https://jetalog.net/73))
